@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('templates/home');
+    return view('welcome');
 });
 
-Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
-Route::get('/analisis', 'App\Http\Controllers\showDataController@index')->name('analisis');
+Route::post('/analisis', 'App\Http\Controllers\showDataController@analizarVideo')->name('analizarVideo');
