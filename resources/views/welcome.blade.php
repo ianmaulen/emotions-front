@@ -8,7 +8,9 @@
                 <h5 class="masthead-heading mb-0 fs-2">Analicemos la Video Entrevista!</h5>
                 <p class="text-center">Carga tu video, y dale click en analizar para ver la información</p>
                 <div class="row d-flex justify-content-center">
-                    <input class="form-control w-50 w-md-50 mt-3" type="file" id="videoInput" accept="video/*">
+                    <div class="col-12 col-md-6">
+                        <input class="form-control w-100 mt-3" type="file" id="videoInput" accept="video/*">
+                    </div>
                 </div>
                 <a class="btn btn-success btn-xl rounded-pill mt-5" href="#scroll" onclick="analizarVideo(); event.preventDefault();">Analizar</a>
             </div>
@@ -31,22 +33,14 @@
     <section>
         <div class="container px-5">
             <div class="row gx-5 align-items-center">
-                <div class="col-lg-6">
-                    <div class="p-5"><img class="img-fluid rounded-circle" src="assets/img/02.jpg" alt="..." /></div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="p-5">
-                        <h2 class="display-4">We salute you!</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>
 
     <!-- Footer-->
-    <footer class="py-5 bg-black">
-        <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; Your Website 2023</p></div>
+    <footer class="py-5 bg-black mb-0">
+        <div class="container px-5"><p class="m-0 text-center text-white small">Desarrollado por alumnos de la USS </p></div>
     </footer>
     
 @endsection
