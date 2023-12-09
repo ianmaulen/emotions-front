@@ -6,10 +6,12 @@
         <div class="masthead-content">
             <div class="container px-5">
                 <h5 class="masthead-heading mb-0 fs-2">Analicemos la Video Entrevista!</h5>
-                <p class="text-center">Carga tu video, y dale click en analizar para ver la información</p>
+                <p class="text-center">Carga tu video y dale click en analizar para ver la información<br>
+                    sobre las emociones y categorización mediante clusters
+                </p>
                 <div class="row d-flex justify-content-center">
                     <div class="col-12 col-md-6">
-                        <input class="form-control w-100 mt-3" type="file" id="videoInput" accept="video/*">
+                        <input class="customBtnFile w-100 mt-3" type="file" id="videoInput" accept="video/*">
                     </div>
                 </div>
                 <a class="btn btn-success btn-xl rounded-pill mt-5" href="#scroll" onclick="analizarVideo(); event.preventDefault();">Analizar</a>
@@ -21,11 +23,14 @@
         <div class="bg-circle-4 bg-circle"></div>
     </header>
     <!-- Content section 1-->
-    <section id="scroll">
-        <div class="container px-5">
-            <div class="row" >
-                <div class="col-12 d-flex justify-content-center mt-5 mt-sm-2" id="graphs">
+    <section id="scroll" class="d-none">
+        <div class="container px-1 text-center mt-5">
+            <h3>Resultado Análisis</h3>
+            <div class="row w-100">
+                <div class="col-12 d-flex justify-content-center mb-5 mt-sm-2" id="graphs">
                 </div>
+            </div>
+            <div class="row d-flex justify-content-center mb-5 text-center" id="clusters">
             </div>
         </div>
     </section>
@@ -37,16 +42,14 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer-->
-    <footer class="py-5 bg-black mb-0">
-        <div class="container px-5"><p class="m-0 text-center text-white small">Desarrollado por alumnos de la USS </p></div>
-    </footer>
     
 @endsection
 
 @section('js')
     <script>
+        let trueIcon = '<i class="bi bi-check-circle-fill text-success fs-1"></i>'
+        let falseIcon = '<i class="bi bi-x-circle-fill text-danger fs-1"></i>'
+
         let analizarVideo = async() => {
             let formData = new FormData();
             let videoInput = $('#videoInput');
@@ -90,66 +93,9 @@
                     }
                     console.log(seriesData);
                     // Crear card para gráficos
-                    // TODO: añadir un título
-                    $('#graphs').html(`
-                        <div class="card">
-                            <div class="card-body">
-                                <div id="highcarts-container" class="mt-3" style="width:100%; max-height:500px;"></div>
-                            </div>
-                        </div>
-                    `);
-                    // Crear el gráfico con los datos de las series
-                    Highcharts.setOptions({
-                        lang: {
-                            downloadCSV: "Descargar CSV",
-                            downloadJPEG: "Descargar JPEG",
-                            downloadPDF: "Descargar PDF",
-                            downloadPNG: "Descargar PNG",
-                            downloadSVG: "Descargar SVG",
-                            downloadXLS: "Descargar XLS",
-                            viewData: "Ver datos",
-                            printChart: "Imprimir gráfico"
-                        }
-                    });
-                    Highcharts.chart('highcarts-container', {
-                        title: {
-                            text: 'Emociones encontradas',
-                            align: 'center'
-                        },
-                        yAxis: {
-                            title: {
-                                text: '% de coincidencia'
-                            }
-                        },
-                        xAxis: {
-                            accessibility: {
-                                rangeDescription: 'Range: 1 to 30'
-                            }
-                        },
-                        plotOptions: {
-                            series: {
-                                label: {
-                                    connectorAllowed: false
-                                },
-                                pointStart: 1
-                            }
-                        },
-                        series: seriesData,
-                        responsive: {
-                            rules: [{
-                                condition: {
-                                    maxWidth: 500
-                                },
-                                chartOptions: {
-                                    legend: {
-                                        layout: 'horizontal',
-                                        align: 'center',
-                                        verticalAlign: 'bottom'
-                                    }
-                                }
-                            }]
-                        }
-                    });
+                    showGraphs(seriesData);
+                    showClusters(data.clusters);
+                    $('#scroll').removeClass('d-none');
                     window.location.href = window.location.href + '#scroll';
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
@@ -160,5 +106,83 @@
                 },
             });
         }
+
+        let showGraphs = (seriesData) => {
+            $('#graphs').html(`
+                <div class="card w-100">
+                    <div class="card-body">
+                        <div id="highcarts-container" class="mt-3" style="width:100%; max-height:500px;"></div>
+                    </div>
+                </div>
+            `);
+            // Crear el gráfico con los datos de las series
+            Highcharts.setOptions({
+                lang: {
+                    downloadCSV: "Descargar CSV",
+                    downloadJPEG: "Descargar JPEG",
+                    downloadPDF: "Descargar PDF",
+                    downloadPNG: "Descargar PNG",
+                    downloadSVG: "Descargar SVG",
+                    downloadXLS: "Descargar XLS",
+                    viewData: "Ver datos",
+                    printChart: "Imprimir gráfico"
+                }
+            });
+            Highcharts.chart('highcarts-container', {
+                title: {
+                    text: 'Emociones encontradas',
+                    align: 'center'
+                },
+                yAxis: {
+                    title: {
+                        text: '% de coincidencia'
+                    }
+                },
+                xAxis: {
+                    accessibility: {
+                        rangeDescription: 'Range: 1 to 30'
+                    }
+                },
+                plotOptions: {
+                    series: {
+                        label: {
+                            connectorAllowed: false
+                        },
+                        pointStart: 1
+                    }
+                },
+                series: seriesData,
+                responsive: {
+                    rules: [{
+                        condition: {
+                            maxWidth: 500
+                        },
+                        chartOptions: {
+                            legend: {
+                                layout: 'horizontal',
+                                align: 'center',
+                                verticalAlign: 'bottom'
+                            }
+                        }
+                    }]
+                }
+            });
+        }
+
+        let showClusters = (clusters) => {
+            let clusterHtml = '';
+            for (let cluster in clusters) {
+                if (clusters.hasOwnProperty(cluster)) {
+                    clusterHtml += `
+                        <div class="col-5 col-md-2 text-center">
+                            <h1 class="fs-4">${cluster.charAt(0).toUpperCase() + cluster.slice(1)}</h1>
+                            ${clusters[cluster] === 1 ? trueIcon : falseIcon}
+                        </div>
+                    `;
+                }
+            }
+            document.getElementById('clusters').innerHTML = clusterHtml;
+        }
+
     </script>
 @endsection
