@@ -22,3 +22,12 @@
 .customBtnFile::file-selector-button:hover {
     background: rgba(255, 45, 66, 0.733);
 }
+
+.customInputParam {
+    width: 50px;
+    color: #ffffff;
+    padding: 5px;
+    background: rgba(150, 150, 150, 0.514);
+    border-radius: 10px;
+    border: 1px solid #fff3f3;
+}

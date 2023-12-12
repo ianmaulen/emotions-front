@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class showDataController extends Controller
+class dataController extends Controller
 {
     public function analizarVideo(Request $request) {
         $video = $request->file('video');
         $client = new \GuzzleHttp\Client();
-        $response = $client->request('POST', 'http://localhost:5000/procesar_video', [
+        $endpointUrl = config('app.process_video_url');
+        $response = $client->request('POST', $endpointUrl, [
             'multipart' => [
                 [
                     'name'     => 'video',

@@ -185,4 +185,6 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    /* Variable de entorno */
+    'process_video_url' => env('PROCESS_VIDEO_URL', 'http://localhost:5000/procesar_video'),
 ];
