@@ -14,7 +14,7 @@
                         <input class="customBtnFile w-100 mt-3" type="file" id="videoInput" accept="video/*">
                     </div>
                 </div>
-                <a class="btn btn-success btn-xl rounded-pill mt-5" href="#scroll" onclick="analizarVideo(); event.preventDefault();">Analizar</a>
+                <a id="btnAnalizar" class="btn btn-success btn-xl rounded-pill mt-5" href="#scroll" onclick="analizarVideo();"  event.preventDefault();">Analizar</a>
             </div>
         </div>
         <div class="bg-circle-1 bg-circle"></div>
@@ -28,17 +28,20 @@
             <h3>Resultado Análisis</h3>
             <div class="row w-100">
                 <div class="col-12 d-flex justify-content-center mb-5 mt-sm-2" id="graphs">
+                    <div class="card w-100">
+                        <div class="card-body">
+                            <div id="highcarts-container" class="mt-3" style="width:100%; max-height:500px;"></div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="row d-flex justify-content-center mb-5 text-center" id="clusters">
             </div>
-        </div>
-    </section>
-    <!-- Content section 2-->
-    <section>
-        <div class="container px-5">
-            <div class="row gx-5 align-items-center">
-                
+            <div class="row d-flex justify-content-center mb-5 text-center">
+                <button class="btn btn-dark btn-lrg col-10 col-md-4 rounded-pill" onclick="location.reload();">Volver a Analizar
+                    <strong><i class="bi bi-arrow-clockwise ms-1 fw-bolder"></i></strong>
+                </button>
             </div>
         </div>
     </section>
@@ -46,6 +49,7 @@
 @endsection
 
 @section('js')
+
     <script>
         let trueIcon = '<i class="bi bi-check-circle-fill text-success fs-1"></i>'
         let falseIcon = '<i class="bi bi-x-circle-fill text-danger fs-1"></i>'
@@ -89,13 +93,13 @@
                                 data: values
                             })
                         }
-                        
                     }
                     console.log(seriesData);
                     // Crear card para gráficos
                     showGraphs(seriesData);
                     showClusters(data.clusters);
                     $('#scroll').removeClass('d-none');
+                    $('#btnAnalizar').prop('disabled', true);
                     window.location.href = window.location.href + '#scroll';
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
@@ -117,15 +121,37 @@
             `);
             // Crear el gráfico con los datos de las series
             Highcharts.setOptions({
+                accessibility: {
+                    enabled: false
+                },
                 lang: {
                     downloadCSV: "Descargar CSV",
                     downloadJPEG: "Descargar JPEG",
                     downloadPDF: "Descargar PDF",
                     downloadPNG: "Descargar PNG",
                     downloadSVG: "Descargar SVG",
-                    downloadXLS: "Descargar XLS",
                     viewData: "Ver datos",
                     printChart: "Imprimir gráfico"
+                },
+                exporting: {
+                    buttons: {
+                        contextButton: {
+                            menuItems: [
+                                'downloadPNG',
+                                'downloadJPEG',
+                                'downloadPDF',
+                                'downloadSVG',
+                                'separator',
+                                'downloadCSV',
+                                'viewData',
+                                'separator',
+                                'printChart'
+                            ]
+                        }
+                    },
+                    csv: {
+                        dateFormat: '%d/%m/%Y %H:%M:%S'
+                    }
                 }
             });
             Highcharts.chart('highcarts-container', {

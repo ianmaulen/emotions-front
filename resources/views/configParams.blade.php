@@ -5,7 +5,7 @@
     <header class="masthead text-center text-white py-5">
         <div class="masthead-content py-5">
             <div class="container px-2 px-md-4">
-                <div class="card bg-danger">
+                <div class="card bg-params">
                     <div class="card-header">
                         <h5 class="my-3 fs-3">Cambiar parámetros de condicionales para determinación de Clusters</h5>
                     </div>
@@ -13,19 +13,23 @@
                         <div class="row d-flex justify-content-center">
                             <div class="col-12 col-md-10">
                                 <ul>
-                                    <li class="mb-2"><strong>Extrovertido=1:</strong> sólo si "HAPPY" tiene <input type="number" min="0" max="100" class="customInputParam" id="HappyExtrovertidoPeaks" value="{{$data['HAPPY']['extrovertido']['peaks']}}"> o más valores sobre 
-                                        <input type="number" min="0" max="100" class="customInputParam" id="HappyExtrovertidoLimit" value="{{$data['HAPPY']['extrovertido']['limit']}}">%. Si no se cumple esta condición, entonces "extrovertido"=0.</li>
-                                    <li class="mb-2"><strong>Determinado=1:</strong> sólo si "CONFUSED" no tiene más de <input type="number" min="0" max="100" class="customInputParam" id="CofusedDeterminadoPeaks" value="{{$data['CONFUSED']['determinado']['peaks']}}"> valores sobre 
-                                        <input type="number" min="0" max="100" class="customInputParam" id="CofusedDeterminadoLimit" value="{{$data['CONFUSED']['determinado']['limit']}}">%. Además, "ANGRY" debe tener <input type="number" min="0" max="100" class="customInputParam" id="AngryDeterminadoPeaks" value="{{$data['ANGRY']['determinado']['peaks']}}"> o más valores sobre 
-                                        <input type="number" min="0" max="100"" class="customInputParam" id="AngryDeterminadoLimit" value="{{$data['ANGRY']['determinado']['limit']}}">%. Si no se cumple esta condición, entonces "determinado"=0.</li>
-                                    <li class="mb-2"><strong>Estructurado=1:</strong> sólo si "CALM" tiene <input type="number" min="0" max="100" class="customInputParam" id="CalmEstructuradoPeaks" value="{{$data['CALM']['estructurado']['peaks']}}"> o más valores sobre 
-                                        <input type="number" min="0" max="100" class="customInputParam" id="CalmEstructuradoLimit" value="{{$data['CALM']['estructurado']['limit']}}">% y "SAD" tiene <input type="number" min="0" max="100" class="customInputParam" id="SadEstructuradoPeaks" value="{{$data['SAD']['estructurado']['peaks']}}"> o más valores sobre 
-                                        <input type="number" min="0" max="100" class="customInputParam" id="SadEstructuradoLimit" value="{{$data['SAD']['estructurado']['limit']}}">%. Si no se cumple esta condición, entonces "estructurado"=0.</li>
-                                    <li class="mb-2"><strong>Creativo=1:</strong> sólo si "SURPRISED" tiene <input type="number" min="0" max="100" class="customInputParam" id="SurprisedCreativoPeaks" value="{{$data['SURPRISED']['creativo']['peaks']}}"> o más valores sobre 
-                                        <input type="number" min="0" max="100" class="customInputParam" id="SurprisedCreativoLimits" value="{{$data['SURPRISED']['creativo']['limit']}}">%. Si no se cumple esta condición, entonces "creativo"=0.</li>
-                                    <li><strong>Racional=1:</strong> sólo si "CALM" tiene <input type="number" min="0" max="100" class="customInputParam" id="CalmRacionalPeaks" value="{{$data['CALM']['racional']['peaks']}}"> o más valores sobre 
-                                        <input type="number" min="0" max="100" class="customInputParam" id="CalmRacionalLimit"  value="{{$data['CALM']['racional']['limit']}}">% y "SAD" tiene <input type="number" min="0" max="100" class="customInputParam" id="SadRacionalPeaks" value="{{$data['SAD']['racional']['peaks']}}"> o más valores sobre 
-                                        <input type="number" min="0" max="100" class="customInputParam" id="SadRacionalLimit" value="{{$data['SAD']['racional']['limit']}}">%. Si no se cumple esta condición, entonces "estructurado"=0.</li>
+                                    <li class="mb-2 font-monospace text-justify"><strong>Extrovertido = 1:</strong> sólo si "HAPPY" tiene <input type="number" min="0" max="100" class="customInputParam" id="HappyExtrovertidoPeaks" value="{{$data['HAPPY']['extrovertido']['peaks']}}"> o más valores sobre 
+                                        <input type="number" min="0" max="100" class="customInputParam" id="HappyExtrovertidoLimit" value="{{$data['HAPPY']['extrovertido']['limit']}}"> %. Si no se cumple esta condición, entonces "extrovertido" = 0.</li>
+                                    <hr>
+                                    <li class="mb-2 font-monospace text-justify"><strong>Determinado = 1:</strong> sólo si "CONFUSED" no tiene más de <input type="number" min="0" max="100" class="customInputParam" id="CofusedDeterminadoPeaks" value="{{$data['CONFUSED']['determinado']['peaks']}}"> valores sobre 
+                                        <input type="number" min="0" max="100" class="customInputParam" id="CofusedDeterminadoLimit" value="{{$data['CONFUSED']['determinado']['limit']}}"> %. Además, "ANGRY" debe tener <input type="number" min="0" max="100" class="customInputParam" id="AngryDeterminadoPeaks" value="{{$data['ANGRY']['determinado']['peaks']}}"> o más valores sobre 
+                                        <input type="number" min="0" max="100"" class="customInputParam" id="AngryDeterminadoLimit" value="{{$data['ANGRY']['determinado']['limit']}}"> %. Si no se cumple esta condición, entonces "determinado" = 0.</li>
+                                    <hr>
+                                    <li class="mb-2 font-monospace text-justify"><strong>Estructurado = 1:</strong> sólo si "CALM" tiene <input type="number" min="0" max="100" class="customInputParam" id="CalmEstructuradoPeaks" value="{{$data['CALM']['estructurado']['peaks']}}"> o más valores sobre 
+                                        <input type="number" min="0" max="100" class="customInputParam" id="CalmEstructuradoLimit" value="{{$data['CALM']['estructurado']['limit']}}"> % y "SAD" tiene <input type="number" min="0" max="100" class="customInputParam" id="SadEstructuradoPeaks" value="{{$data['SAD']['estructurado']['peaks']}}"> o más valores sobre 
+                                        <input type="number" min="0" max="100" class="customInputParam" id="SadEstructuradoLimit" value="{{$data['SAD']['estructurado']['limit']}}"> %. Si no se cumple esta condición, entonces "estructurado" = 0.</li>
+                                    <hr>
+                                    <li class="mb-2 font-monospace text-justify"><strong>Creativo = 1:</strong> sólo si "SURPRISED" tiene <input type="number" min="0" max="100" class="customInputParam" id="SurprisedCreativoPeaks" value="{{$data['SURPRISED']['creativo']['peaks']}}"> o más valores sobre 
+                                        <input type="number" min="0" max="100" class="customInputParam" id="SurprisedCreativoLimits" value="{{$data['SURPRISED']['creativo']['limit']}}"> %. Si no se cumple esta condición, entonces "creativo" = 0.</li>
+                                    <hr>
+                                    <li class="font-monospace text-justify"><strong>Racional = 1:</strong> sólo si "CALM" tiene <input type="number" min="0" max="100" class="customInputParam" id="CalmRacionalPeaks" value="{{$data['CALM']['racional']['peaks']}}"> o más valores sobre 
+                                        <input type="number" min="0" max="100" class="customInputParam" id="CalmRacionalLimit"  value="{{$data['CALM']['racional']['limit']}}"> % y "SAD" tiene <input type="number" min="0" max="100" class="customInputParam" id="SadRacionalPeaks" value="{{$data['SAD']['racional']['peaks']}}"> o más valores sobre 
+                                        <input type="number" min="0" max="100" class="customInputParam" id="SadRacionalLimit" value="{{$data['SAD']['racional']['limit']}}"> %. Si no se cumple esta condición, entonces "estructurado" = 0.</li>
                                 </ul>
                             </div>
                         </div>
