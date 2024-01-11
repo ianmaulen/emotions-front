@@ -18,7 +18,7 @@
                                     <hr>
                                     <li class="mb-2 font-monospace text-justify"><strong>Determinado = 1:</strong> sólo si "CONFUSED" no tiene más de <input type="number" min="0" max="100" class="customInputParam" id="CofusedDeterminadoPeaks" value="{{$data['CONFUSED']['determinado']['peaks']}}"> valores sobre 
                                         <input type="number" min="0" max="100" class="customInputParam" id="CofusedDeterminadoLimit" value="{{$data['CONFUSED']['determinado']['limit']}}"> %. Además, "ANGRY" debe tener <input type="number" min="0" max="100" class="customInputParam" id="AngryDeterminadoPeaks" value="{{$data['ANGRY']['determinado']['peaks']}}"> o más valores sobre 
-                                        <input type="number" min="0" max="100"" class="customInputParam" id="AngryDeterminadoLimit" value="{{$data['ANGRY']['determinado']['limit']}}"> %. Si no se cumple esta condición, entonces "determinado" = 0.</li>
+                                        <input type="number" min="0" max="100" class="customInputParam" id="AngryDeterminadoLimit" value="{{$data['ANGRY']['determinado']['limit']}}"> %. Si no se cumple esta condición, entonces "determinado" = 0.</li>
                                     <hr>
                                     <li class="mb-2 font-monospace text-justify"><strong>Estructurado = 1:</strong> sólo si "CALM" tiene <input type="number" min="0" max="100" class="customInputParam" id="CalmEstructuradoPeaks" value="{{$data['CALM']['estructurado']['peaks']}}"> o más valores sobre 
                                         <input type="number" min="0" max="100" class="customInputParam" id="CalmEstructuradoLimit" value="{{$data['CALM']['estructurado']['limit']}}"> % y "SAD" tiene <input type="number" min="0" max="100" class="customInputParam" id="SadEstructuradoPeaks" value="{{$data['SAD']['estructurado']['peaks']}}"> o más valores sobre 
@@ -90,9 +90,7 @@
                         title: 'Éxito',
                         text: data.msg
                     }).then(function() {
-                        setTimeout(function() {
-                            window.location.href = '{{ route('home') }}';
-                        }, 2000);
+                        window.location.href = '{{ route('home') }}';
                     });
                 },
                 error: function(e) {

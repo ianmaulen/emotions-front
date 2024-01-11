@@ -99,8 +99,8 @@
                     showGraphs(seriesData);
                     showClusters(data.clusters);
                     $('#scroll').removeClass('d-none');
-                    $('#btnAnalizar').prop('disabled', true);
-                    window.location.href = window.location.href + '#scroll';
+                    $('#btnAnalizar').addClass('disabled');
+                    $('html, body').animate({ scrollTop: $(document).height() }, 'slow');
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     Swal.close();
