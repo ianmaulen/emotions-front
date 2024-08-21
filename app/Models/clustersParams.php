@@ -12,9 +12,10 @@ class clustersParams extends Model
     public $timestamps = false;
     
     protected $fillable = [
-        'emotion',
-        'cluster',
-        'limit',
-        'peaks',
+        'emotion_id',
+        'cluster_id',
+        'peak_limits',
+        'value_limit',
+        'level'
     ];
 }

@@ -12,13 +12,13 @@ class ParamsController extends Controller
     public function index() 
     {
         $data = [];
-        $params = clustersParams::join('clusters', 'clusters.id', '=', 'cluster')
-            ->join('emotions', 'emotions.id', '=', 'emotion')
+        $params = clustersParams::join('clusters', 'clusters.id', '=', 'cluster_id')
+            ->join('emotions', 'emotions.id', '=', 'emotion_id')
             ->get();
         /* ORDER DATA WITH EMOTION AND CLUSTER INDEX */
         foreach($params as $value) {
-            $data[$value['emotion_name']][$value['cluster_name']]['limit'] = intval($value->limit);
-            $data[$value['emotion_name']][$value['cluster_name']]['peaks'] = intval($value->peaks);
+            $data[$value['cluster_name']][$value['level']][$value['emotion_name']]['value_limit'] = intval($value->value_limit);
+            $data[$value['cluster_name']][$value['level']][$value['emotion_name']]['peak_limits'] = intval($value->peak_limits);
         }
 
         return view('configParams')->with('data', $data);
@@ -32,12 +32,13 @@ class ParamsController extends Controller
             $param = json_decode($value);
             $emotion = Emotions::where('emotion_name', $param->emotion)->first();
             $cluster = Clusters::where('cluster_name', $param->cluster)->first();
-            $config = clustersParams::where('emotion', $emotion['id'])
-                ->where('cluster', $cluster['id'])
+            $config = clustersParams::where('emotion_id', $emotion['id'])
+                ->where('cluster_id', $cluster['id'])
+                ->where('level', $param->level)
                 ->first();
             if ($config) {
-                $config->limit = $param->limit;
-                $config->peaks = $param->peaks;
+                $config->value_limit = $param->limit;
+                $config->peak_limits = $param->peaks;
                 $config->save();
             }
         }
