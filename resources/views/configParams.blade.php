@@ -170,6 +170,11 @@
 
 @section('js')
     <script>
+        /**
+         * Toma todos los parámetros (inputs) editables para los niveles 
+         * alto y medio por cluster. Bajo dependerá de medio, es decir si no
+         * se cumple la condicion para medio, será si o si 'bajo'
+         */
         let saveParams = () => {
             console.log('guardando...');
             let formData = new FormData();
