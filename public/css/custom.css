@@ -53,3 +53,14 @@
     }
 }
 
+.instruction-text {
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    border: 1px solid #555;
+}
+
+.instruction-text::placeholder {
+    color: rgba(231, 231, 231, 0.808)
+}

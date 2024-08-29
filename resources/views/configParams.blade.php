@@ -243,6 +243,11 @@
                     });
                 },
                 error: function(e) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Ocurrió un error al guardar los datos.'
+                    });
                    console.log(e)
                 },
             });

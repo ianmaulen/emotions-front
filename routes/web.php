@@ -30,3 +30,5 @@ Route::post('/deleteOutput', 'App\Http\Controllers\OutputsController@deleteOutpu
 // Análisis de video
 Route::post('/analisis', 'App\Http\Controllers\dataController@analizarVideo')->name('analizarVideo');
 
+Route::post('/exportarPDF', 'App\Http\Controllers\dataController@exportarPDF')->name('exportarPDF');
+
