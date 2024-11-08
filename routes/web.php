@@ -27,6 +27,10 @@ Route::post('/saveOutput', 'App\Http\Controllers\OutputsController@saveOutput')-
 Route::post('/newOutput', 'App\Http\Controllers\OutputsController@newOutput')->name('newOutput');
 Route::post('/deleteOutput', 'App\Http\Controllers\OutputsController@deleteOutput')->name('deleteOutput');
 
+// Rutas de config de operaciones matematicas
+Route::get('/operations', 'App\Http\Controllers\OperationsController@index')->name('configOperations');
+Route::post('/saveOperations', 'App\Http\Controllers\OperationsController@saveOperations')->name('saveOperations');
+
 // Análisis de video
 Route::post('/analisis', 'App\Http\Controllers\dataController@analizarVideo')->name('analizarVideo');
 

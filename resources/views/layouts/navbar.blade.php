@@ -9,9 +9,13 @@
                         <i class="bi bi-house me-1"></i>
                         Inicio
                     </a>
-                    <a class="nav-link col-lg-auto col-12 d-flex {{ request()->routeIs('configParams') ? 'text-white' : '' }}" href="{{ route('configParams') }}" id="navbarDropdown" role="button">
+                    <!-- <a class="nav-link col-lg-auto col-12 d-flex {{ request()->routeIs('configParams') ? 'text-white' : '' }}" href="{{ route('configParams') }}" id="navbarDropdown" role="button">
                         <i class="bi bi-gear me-1"></i>
                         Condiciones
+                    </a> -->
+                    <a class="nav-link col-lg-auto col-12 d-flex {{ request()->routeIs('configOperations') ? 'text-white' : '' }}" href="{{ route('configOperations') }}" id="navbarDropdown" role="button">
+                        <i class="bi bi-braces-asterisk me-1"></i>
+                        Operaciones
                     </a>
                     <a class="nav-link col-lg-auto col-12 d-flex {{ request()->routeIs('configOutputs') ? 'text-white' : '' }}" href="{{ route('configOutputs') }}" id="navbarDropdown" role="button">
                         <i class="bi bi-clipboard me-1"></i> 
