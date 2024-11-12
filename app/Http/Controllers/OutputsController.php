@@ -16,7 +16,7 @@ class OutputsController extends Controller
         $params = clustersTexts::where('status', 1)->get();
         /* ORDER DATA WITH CLUSTER INDEX AND LEVEL */
         foreach($params as $value) {
-            $data[$value->cluster_name][$value->level][] = ['id' => $value->id, 'text' => $value->text];
+            $data[$value->ludwika_name][$value->level][] = ['id' => $value->id, 'text' => $value->text];
         }
 
         return view('configOutputs')->with('data', $data);
@@ -54,7 +54,7 @@ class OutputsController extends Controller
     {
         $data = $request->all();
         $newOutput = clustersTexts::create([
-            'cluster_name' => $data['cluster'],
+            'ludwika_name' => $data['cluster'],
             'level' => $data['level'],
             'text' => $data['text'],
         ]);

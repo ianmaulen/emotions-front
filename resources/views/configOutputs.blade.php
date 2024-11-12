@@ -15,14 +15,14 @@
                                 <!-- ... código existente ... -->
                                 <div class="accordion" id="accordionExample">
                                     <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingExtrovertido">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExtrovertido" aria-expanded="false" aria-controls="collapseExtrovertido">
-                                                EXTROVERTIDO
+                                        <h2 class="accordion-header" id="headingExtraversion">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExtraversion" aria-expanded="false" aria-controls="collapseExtraversion">
+                                                EXTRAVERSION
                                             </button>
                                         </h2>
-                                        <div id="collapseExtrovertido" class="accordion-collapse collapse" aria-labelledby="headingExtrovertido" data-bs-parent="#accordionExample">
+                                        <div id="collapseExtraversion" class="accordion-collapse collapse" aria-labelledby="headingExtraversion" data-bs-parent="#accordionExample">
                                             <div class="accordion-body p-0">
-                                                <div class="accordion sub-accordion" id="accordionExtrovertido">
+                                                <div class="accordion sub-accordion" id="accordionExtraversion">
                                                     @foreach(['alto', 'medio', 'bajo'] as $nivel)
                                                         <div class="accordion-item">
                                                             <h2 class="accordion-header" id="heading{{ ucfirst($nivel) }}">
@@ -30,11 +30,11 @@
                                                                     {{ ucfirst($nivel) }}
                                                                 </button>
                                                             </h2>
-                                                            <div id="collapse{{ ucfirst($nivel) }}" class="accordion-collapse collapse" aria-labelledby="heading{{ ucfirst($nivel) }}" data-bs-parent="#accordionExtrovertido">
+                                                            <div id="collapse{{ ucfirst($nivel) }}" class="accordion-collapse collapse" aria-labelledby="heading{{ ucfirst($nivel) }}" data-bs-parent="#accordionExtraversion">
                                                                 <div class="accordion-body px-5">
                                                                     <table class="table">
                                                                         <tbody>
-                                                                            @foreach($data['extrovertido'][$nivel] as $item)
+                                                                            @foreach($data['EXTRAVERSION'][$nivel] as $item)
                                                                                 <tr>
                                                                                     <td class="text-justify">
                                                                                         <p id="text-{{$item['id']}}">{{ $item['text'] }}</p>
@@ -56,26 +56,26 @@
                                         </div>
                                     </div>
                                     <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingDeterminado">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDeterminado" aria-expanded="false" aria-controls="collapseDeterminado">
-                                                DETERMINADO
+                                        <h2 class="accordion-header" id="headingOpenness">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOpenness" aria-expanded="false" aria-controls="collapseOpenness">
+                                                OPENNESS
                                             </button>
                                         </h2>
-                                        <div id="collapseDeterminado" class="accordion-collapse collapse" aria-labelledby="headingDeterminado" data-bs-parent="#accordionExample">
+                                        <div id="collapseOpenness" class="accordion-collapse collapse" aria-labelledby="headingOpenness" data-bs-parent="#accordionExample">
                                             <div class="accordion-body p-0">
                                                 <div class="accordion sub-accordion p-0">
                                                     @foreach(['alto', 'medio', 'bajo'] as $nivel)
                                                         <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="heading{{ ucfirst($nivel) }}Determinado">
-                                                                <button class="accordion-button px-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ ucfirst($nivel) }}Determinado" aria-expanded="false" aria-controls="collapse{{ ucfirst($nivel) }}Determinado">
+                                                            <h2 class="accordion-header" id="heading{{ ucfirst($nivel) }}Openness">
+                                                                <button class="accordion-button px-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ ucfirst($nivel) }}Openness" aria-expanded="false" aria-controls="collapse{{ ucfirst($nivel) }}Openness">
                                                                     {{ ucfirst($nivel) }}
                                                                 </button>
                                                             </h2>
-                                                            <div id="collapse{{ ucfirst($nivel) }}Determinado" class="accordion-collapse collapse" aria-labelledby="heading{{ ucfirst($nivel) }}Determinado" data-bs-parent="#accordionDeterminado">
+                                                            <div id="collapse{{ ucfirst($nivel) }}Openness" class="accordion-collapse collapse" aria-labelledby="heading{{ ucfirst($nivel) }}Openness" data-bs-parent="#accordionOpenness">
                                                                 <div class="accordion-body px-5">
                                                                     <table class="table">
                                                                         <tbody>
-                                                                            @foreach($data['determinado'][$nivel] as $item)
+                                                                            @foreach($data['OPENNESS'][$nivel] as $item)
                                                                                 <tr>
                                                                                     <td class="text-justify">
                                                                                         <p id="text-{{$item['id']}}">{{ $item['text'] }}</p>
@@ -97,26 +97,26 @@
                                         </div>
                                     </div>
                                     <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingEstructurado">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEstructurado" aria-expanded="false" aria-controls="collapseEstructurado">
-                                                ESTRUCTURADO
+                                        <h2 class="accordion-header" id="headingAgreeableness">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAgreeableness" aria-expanded="false" aria-controls="collapseAgreeableness">
+                                                AGREEABLENESS
                                             </button>
                                         </h2>
-                                        <div id="collapseEstructurado" class="accordion-collapse collapse" aria-labelledby="headingEstructurado" data-bs-parent="#accordionExample">
+                                        <div id="collapseAgreeableness" class="accordion-collapse collapse" aria-labelledby="headingAgreeableness" data-bs-parent="#accordionExample">
                                             <div class="accordion-body p-0">
                                                 <div class="accordion sub-accordion">
                                                     @foreach(['alto', 'medio', 'bajo'] as $nivel)
                                                         <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="heading{{ ucfirst($nivel) }}Estructurado">
-                                                                <button class="accordion-button px-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ ucfirst($nivel) }}Estructurado" aria-expanded="false" aria-controls="collapse{{ ucfirst($nivel) }}Estructurado">
+                                                            <h2 class="accordion-header" id="heading{{ ucfirst($nivel) }}Agreeableness">
+                                                                <button class="accordion-button px-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ ucfirst($nivel) }}Agreeableness" aria-expanded="false" aria-controls="collapse{{ ucfirst($nivel) }}Agreeableness">
                                                                     {{ ucfirst($nivel) }}
                                                                 </button>
                                                             </h2>
-                                                            <div id="collapse{{ ucfirst($nivel) }}Estructurado" class="accordion-collapse collapse" aria-labelledby="heading{{ ucfirst($nivel) }}Estructurado" data-bs-parent="#accordionEstructurado">
+                                                            <div id="collapse{{ ucfirst($nivel) }}Agreeableness" class="accordion-collapse collapse" aria-labelledby="heading{{ ucfirst($nivel) }}Agreeableness" data-bs-parent="#accordionAgreeableness">
                                                                 <div class="accordion-body px-5">
                                                                     <table class="table">
                                                                         <tbody>
-                                                                            @foreach($data['estructurado'][$nivel] as $item)
+                                                                            @foreach($data['AGREEABLENESS'][$nivel] as $item)
                                                                                 <tr>
                                                                                     <td class="text-justify">
                                                                                         <p id="text-{{$item['id']}}">{{ $item['text'] }}</p>
@@ -138,26 +138,26 @@
                                         </div>
                                     </div>
                                     <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingCreativo">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCreativo" aria-expanded="false" aria-controls="collapseCreativo">
-                                                CREATIVO
+                                        <h2 class="accordion-header" id="headingNeuroticism">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNeuroticism" aria-expanded="false" aria-controls="collapseNeuroticism">
+                                                NEUROTICISM
                                             </button>
                                         </h2>
-                                        <div id="collapseCreativo" class="accordion-collapse collapse" aria-labelledby="headingCreativo" data-bs-parent="#accordionExample">
+                                        <div id="collapseNeuroticism" class="accordion-collapse collapse" aria-labelledby="headingNeuroticism" data-bs-parent="#accordionExample">
                                             <div class="accordion-body p-0">
                                                 <div class="accordion sub-accordion">
                                                     @foreach(['alto', 'medio', 'bajo'] as $nivel)
                                                         <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="heading{{ ucfirst($nivel) }}Creativo">
-                                                                <button class="accordion-button px-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ ucfirst($nivel) }}Creativo" aria-expanded="false" aria-controls="collapse{{ ucfirst($nivel) }}Creativo">
+                                                            <h2 class="accordion-header" id="heading{{ ucfirst($nivel) }}Neuroticism">
+                                                                <button class="accordion-button px-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ ucfirst($nivel) }}Neuroticism" aria-expanded="false" aria-controls="collapse{{ ucfirst($nivel) }}Neuroticism">
                                                                     {{ ucfirst($nivel) }}
                                                                 </button>
                                                             </h2>
-                                                            <div id="collapse{{ ucfirst($nivel) }}Creativo" class="accordion-collapse collapse" aria-labelledby="heading{{ ucfirst($nivel) }}Creativo" data-bs-parent="#accordionCreativo">
+                                                            <div id="collapse{{ ucfirst($nivel) }}Neuroticism" class="accordion-collapse collapse" aria-labelledby="heading{{ ucfirst($nivel) }}Neuroticism" data-bs-parent="#accordionNeuroticism">
                                                                 <div class="accordion-body px-5">
                                                                     <table class="table">
                                                                         <tbody>
-                                                                            @foreach($data['creativo'][$nivel] as $item)
+                                                                            @foreach($data['NEUROTICISM'][$nivel] as $item)
                                                                                 <tr>
                                                                                     <td class="text-justify">
                                                                                         <p id="text-{{$item['id']}}">{{ $item['text'] }}</p>
@@ -179,26 +179,26 @@
                                         </div>
                                     </div>
                                     <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingRacional">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRacional" aria-expanded="false" aria-controls="collapseRacional">
-                                                RACIONAL
+                                        <h2 class="accordion-header" id="headingConscientiousness">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseConscientiousness" aria-expanded="false" aria-controls="collapseConscientiousness">
+                                                CONSCIENTIOUSNESS   
                                             </button>
                                         </h2>
-                                        <div id="collapseRacional" class="accordion-collapse collapse" aria-labelledby="headingRacional" data-bs-parent="#accordionExample">
+                                        <div id="collapseConscientiousness" class="accordion-collapse collapse" aria-labelledby="headingConscientiousness" data-bs-parent="#accordionExample">
                                             <div class="accordion-body p-0">
                                                 <div class="accordion sub-accordion">
                                                     @foreach(['alto', 'medio', 'bajo'] as $nivel)
                                                         <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="heading{{ ucfirst($nivel) }}Racional">
-                                                                <button class="accordion-button px-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ ucfirst($nivel) }}Racional" aria-expanded="false" aria-controls="collapse{{ ucfirst($nivel) }}Racional">
+                                                            <h2 class="accordion-header" id="heading{{ ucfirst($nivel) }}Conscientiousness">
+                                                                <button class="accordion-button px-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ ucfirst($nivel) }}Conscientiousness" aria-expanded="false" aria-controls="collapse{{ ucfirst($nivel) }}Conscientiousness">
                                                                     {{ ucfirst($nivel) }}
                                                                 </button>
                                                             </h2>
-                                                            <div id="collapse{{ ucfirst($nivel) }}Racional" class="accordion-collapse collapse" aria-labelledby="heading{{ ucfirst($nivel) }}Racional" data-bs-parent="#accordionRacional">
+                                                            <div id="collapse{{ ucfirst($nivel) }}Conscientiousness" class="accordion-collapse collapse" aria-labelledby="heading{{ ucfirst($nivel) }}Conscientiousness" data-bs-parent="#accordionConscientiousness">
                                                                 <div class="accordion-body px-5">
                                                                     <table class="table">
                                                                         <tbody>
-                                                                            @foreach($data['racional'][$nivel] as $item)
+                                                                            @foreach($data['CONSCIENTIOUSNESS'][$nivel] as $item)
                                                                                 <tr>
                                                                                     <td class="text-justify">
                                                                                         <p id="text-{{$item['id']}}">{{ $item['text'] }}</p>
@@ -332,11 +332,11 @@
                             <label for="select-cluster" class="form-label">Cluster:</label>
                             <select id="select-cluster" class="form-select col-12 col-md-6">
                                 <option value="" disabled selected>Seleccione un cluster</option>
-                                <option value="extrovertido">Extrovertido</option>
-                                <option value="determinado">Determinado</option>
-                                <option value="estructurado">Estructurado</option>
-                                <option value="creativo">Creativo</option>
-                                <option value="racional">Racional</option>
+                                <option value="EXTRAVERSION">EXTRAVERSION</option>
+                                <option value="OPENNESS">OPENNESS</option>
+                                <option value="AGREEABLENESS">AGREEABLENESS</option>
+                                <option value="NEUROTICISM">NEUROTICISM</option>
+                                <option value="CONSCIENTIOUSNESS">CONSCIENTIOUSNESS</option>
                             </select>
                         </div>
                         <div class="col-6 text-start">
@@ -424,7 +424,7 @@
         }
 
         /**
-         * Levanta un alert con un textarea para editar el texto
+         * Elimina un texto
          */
         let deleteText = (id) => {
             Swal.fire({

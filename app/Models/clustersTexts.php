@@ -13,6 +13,7 @@ class clustersTexts extends Model
     
     protected $fillable = [
         'cluster_name',
+        'ludwika_name',
         'level',
         'text',
     ];
